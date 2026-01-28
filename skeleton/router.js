@@ -15,8 +15,9 @@ export function navigate(href) {
 }
 
 export function currentRoute(r, defaultRoute) {
-    for (const prefix in r) {
-        if (window.location .pathname.startsWith(prefix)) {
+    const sortedPrefixes = Object.keys(r).sort((a, b) => b.length - a.length);
+    for (const prefix of sortedPrefixes) {
+        if (window.location.pathname.startsWith(prefix)) {
             return r[prefix];
         }
     }

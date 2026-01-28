@@ -19,6 +19,20 @@ describe("router", () => {
         expect(currentRoute(routes)).toBe(null);
     });
 
+    it("logic to get the most specific route", () => {
+        // given
+        const routes = {
+            "/": "root",
+            "/foo": "foo",
+        }
+        window.history.pushState({}, "", "/foo");
+
+        // when, then
+        // If order of iteration finds "/" first, it will match because "/foo".startsWith("/") is true.
+        // We expect "foo".
+        expect(currentRoute(routes)).toBe("foo");
+    });
+
     it("trigger a page change when DOMContentLoaded", () => {
         // given
         const fn = jest.fn();
