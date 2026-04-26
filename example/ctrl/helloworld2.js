@@ -1,17 +1,4 @@
-export default async function(render) {
-    render(`
-        <div class="component_helloworld">
-            <h1>
-                Hello world
-            </h1>
-            <p>
-                  (content coming in 2s)
-             </p>
-        </div>
-   `);
-
-    await new Promise((done) => setTimeout(done, 1000));
-
+export default function(render) {
     render(`
         <div class="component_helloworld">
             <!-- this is all plain HTML -->

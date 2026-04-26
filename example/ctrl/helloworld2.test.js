@@ -6,10 +6,9 @@ test("hello world", async () => {
 
     // when
     page(render);
-    await new Promise((done) => setTimeout(done, 1000));
 
     // assert
-    expect(render.size()).toBe(2);
+    expect(render.size()).toBe(1);
     expect(render.get(0)).toContain("Hello world");
-    expect(render.get(1)).toContain("Hello world");
+    expect(render.get(0)).toContain("go home");
 });
